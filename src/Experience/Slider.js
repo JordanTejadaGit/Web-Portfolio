@@ -197,7 +197,4 @@ export default class Slider
         }
     }
 
-    update() {
-        this.counter
-    }
 }

@@ -81,6 +81,5 @@ export default class Experience
         this.camera.update()
         this.World.update()
         this.renderer.update()
-        this.slider.update()
     }
 }
