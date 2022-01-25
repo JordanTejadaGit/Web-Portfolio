@@ -13,10 +13,10 @@ export default class Resources extends EventEmitter
         this.sources = sources
 
         // Setup
-        this.itemsList = []
         this.items = {}
         this.toLoad = this.sources.length
         this.loaded = 0
+
 
         this.setLoaders()
         this.startLoading()
@@ -71,13 +71,15 @@ export default class Resources extends EventEmitter
 
     sourceLoaded(source, file)
     {
+        file.generateMipmaps = false
+        file.minFilter = THREE.NearestFilter
         this.items[source.name] = file
-        this.itemsList.push(file)
 
         this.loaded++
 
         if(this.loaded == this.toLoad)
         {
+            this.itemsList = [this.items.initial, this.items.skillsLogo, this.items.project1, this.items.project2, this.items.project3]
             this.trigger('ready')
         }
     }

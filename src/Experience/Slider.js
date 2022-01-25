@@ -11,6 +11,9 @@ export default class Slider
         const git = document.querySelectorAll(".git")
         const clickable = document.querySelectorAll("body");
         this.experience = new Experience();
+        this.particles = this.experience.World.particles
+        this.resources = this.experience.resources
+        this.render = this.experience.renderer
 
         this.counter = 0
         const size = projects.length
@@ -34,6 +37,7 @@ export default class Slider
                 // gsap.fromTo(this.projects[this.counter].position, 
                 //         {x: 50}, 
                 //         {x: -170, duration: 1.5, ease: "power4"})
+                this.transformParticlesSliderNextRestart()
                 this.counter = 0
             }
             else {
@@ -51,6 +55,7 @@ export default class Slider
                 // gsap.fromTo(this.projects[this.counter].position, 
                 //         {x: 50}, 
                 //         {x: -170, duration: 1.5, ease: "power4"})
+                this.transformParticlesSliderNext()
                 this.counter++
             }
         })
@@ -72,6 +77,7 @@ export default class Slider
                 // gsap.fromTo(this.projects[this.counter].position, 
                 //     {x: 50}, 
                 //     {x: 200, duration: 1.5, ease: "power4"})
+                this.transformParticlesSliderPrevRestart(size)
                 this.counter = size - 1
             }
             else {
@@ -89,9 +95,109 @@ export default class Slider
                 // gsap.fromTo(this.projects[this.counter].position, 
                 //     {x: 50}, 
                 //     {x: 200, duration: 1.5, ease: "power4"})
+                this.transformParticlesSliderPrev()
                 this.counter--
             }
         })
 
+
+
+    }
+    transformParticlesSliderNext() {
+        let project = gsap.timeline()
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 5, duration: 1, ease: "power2.in"})
+        project.to(this.render.parameters, 
+            {bloomStrength: 5, duration: 1, ease: "power2.in"}, 0)
+        project.to(this.render.parameters, 
+            {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 0, duration: 1, ease: "power2.out"}, 1)
+        if(this.particles.material.uniforms.uProgress.value === 0) {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter + 1]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 1, duration: 1}, 0.5)
+        }
+        else {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter + 1]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 0, duration: 1}, 0.5)
+        }
+    }
+    transformParticlesSliderNextRestart() {
+        let project = gsap.timeline()
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 5, duration: 1, ease: "power2.in"})
+        project.to(this.render.parameters, 
+            {bloomStrength: 5, duration: 1, ease: "power2.in"}, 0)
+        project.to(this.render.parameters, 
+            {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 0, duration: 1, ease: "power2.out"}, 1)
+        if(this.particles.material.uniforms.uProgress.value === 0) {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 1, duration: 1}, 0.5)
+        }
+        else {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 0, duration: 1}, 0.5)
+        }
+    }
+
+    transformParticlesSliderPrev() {
+        let project = gsap.timeline()
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 5, duration: 1, ease: "power2.in"})
+        project.to(this.render.parameters, 
+            {bloomStrength: 5, duration: 1, ease: "power2.in"}, 0)
+        project.to(this.render.parameters, 
+            {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 0, duration: 1, ease: "power2.out"}, 1)
+        if(this.particles.material.uniforms.uProgress.value === 0) {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter - 1]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 1, duration: 1}, 0.5)
+        }
+        else {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter - 1]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 0, duration: 1}, 0.5)
+        }
+    }
+    transformParticlesSliderPrevRestart(size) {
+        let project = gsap.timeline()
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 5, duration: 1, ease: "power2.in"})
+        project.to(this.render.parameters, 
+            {bloomStrength: 5, duration: 1, ease: "power2.in"}, 0)
+        project.to(this.render.parameters, 
+            {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
+        project.to(this.particles.material.uniforms.uDistortion, 
+            {value: 0, duration: 1, ease: "power2.out"}, 1)
+        if(this.particles.material.uniforms.uProgress.value === 0) {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + size -1]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 1, duration: 1}, 0.5)
+        }
+        else {
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + size - 1]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            project.to(this.particles.material.uniforms.uProgress,
+                {value: 0, duration: 1}, 0.5)
+        }
+    }
+
+    update() {
+        this.counter
     }
 }

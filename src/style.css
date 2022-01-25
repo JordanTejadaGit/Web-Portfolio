@@ -135,7 +135,7 @@
       color: lightgray;
     }
     
-    .name img {
+    /* .name img {
       height: 7%;
       left: 23%;
       text-align: center;
@@ -145,11 +145,11 @@
       max-width: auto;
       max-height: 100%;
       -webkit-animation: bounce 2s infinite ease;
-    }
+    } */
     
-    .name.startFade img {
+    /* .name.startFade img {
       -webkit-animation: bounce 2s infinite ease;
-    }
+    } */
     
     @keyframes bounce {
       0%   { transform: translateY(0); }
@@ -265,6 +265,19 @@
       opacity: 0;
       position: fixed;
       pointer-events: none;
+    }
+
+    .aboutSkills {
+      position: fixed;
+      top: 35%;
+      right: 15%;
+      height: 50%;
+      width: 50%;
+    }
+
+    .aboutSkills img{
+      max-width: auto;
+      max-height: 100%;
     }
     
     .projects {

@@ -152,7 +152,7 @@ void main()
     vec3 noise = vec3(position.x * 2.0, position.y, 1.0) * 
         curlNoise(vec3(
             position.x * 0.02+ (uTime *  uSpeed), 
-            position.y * 0.008, 
+            position.y * 0.012, 
             0)) * uDistortion;
 
     vec3 finapPosition = position + noise;

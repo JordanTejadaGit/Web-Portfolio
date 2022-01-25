@@ -16,7 +16,7 @@ export default class Renderer
         this.camera = this.experience.camera
 
         this.parameters = {
-            exposure: 1,
+            exposure: 1.5,
             bloomStrength: 0.2,
             bloomThreshold: 0,
             bloomRadius: 0

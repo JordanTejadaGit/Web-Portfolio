@@ -53,8 +53,8 @@ export default class Experience
 
         this.resources.on('ready', () =>
         {
-                this.nav = new NavBar();
                 this.slider = new Slider();
+                this.nav = new NavBar();
         })
 
         // Sizes resize event
@@ -81,5 +81,6 @@ export default class Experience
         this.camera.update()
         this.World.update()
         this.renderer.update()
+        this.slider.update()
     }
 }

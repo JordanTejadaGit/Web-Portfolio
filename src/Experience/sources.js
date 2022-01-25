@@ -2,7 +2,12 @@ export default [
     {
         name: 'initial',
         type: 'texture',
-        path: 'logo/jsonlogo.png'
+        path: 'logo/initial.png'
+    },
+    {
+        name: 'skillsLogo',
+        type: 'texture',
+        path: 'logo/skilllogo.png'
     },
     {
         name: 'htmlLogo',
@@ -18,5 +23,20 @@ export default [
         name: 'javascriptLogo',
         type: 'texture',
         path: 'logo/javascriptLogo.png'
+    },
+    {
+        name: 'project1',
+        type: 'texture',
+        path: 'pictures/project1_portfolio.png'
+    },
+    {
+        name: 'project2',
+        type: 'texture',
+        path: 'pictures/project2_portfolio.png'
+    },
+    {
+        name: 'project3',
+        type: 'texture',
+        path: 'pictures/project3_portfolio.png'
     }
 ]

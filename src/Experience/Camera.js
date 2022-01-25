@@ -29,7 +29,7 @@ export default class Camera
             0.1,
             5000
         )
-        this.instance.position.set(-800, 0, 2500)
+        this.instance.position.set(-850, 0, 2500)
         this.scene.add(this.instance)
         // this.instanceHelper = new THREE.CameraHelper(this.instance)
         // this.scene.add(this.instanceHelper)

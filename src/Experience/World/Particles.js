@@ -22,7 +22,7 @@ import gsap from 'gsap'
         this.currentIntersect = null
         this.materialArray = []
         this.meshArray = []
-        this.pageDist = [1.25, 0]
+        this.pageDist = [1, 0, 0, 0, 0, 0, 0]
 
 
         this.isPlaying = true;
@@ -44,44 +44,44 @@ import gsap from 'gsap'
      }
 
      setGeometry() {
-         this.geometry = new THREE.PlaneBufferGeometry(256, 256, 256, 256);
+         this.geometry = new THREE.PlaneBufferGeometry(480, 270, 480, 270);
      }
 
      setMaterial() {
-         for (let i = 0; i < 4; i++ ) {
-            this.material = new THREE.ShaderMaterial({
-                vertexShader: vertexShader,
-                fragmentShader: fragmentShader,
-                uniforms: {
-                uTime: { type: "f", value: 0},
-                uSpeed: {value: 0.0005},
-                uTexture: { value: this.resources.itemsList[0]},
-                uTexture2: { value: this.resources.itemsList[i]},
-                uProgress: { value: 0},
-                uDistortion: { value: 1.25},
-                uHide: { value: 0.0},
-                uBloomStrength: { value: this.parameters.bloomStrength},
-                uSize: {value: 0.0 * this.renderer.instance.getPixelRatio()}
-                }
-            })
-            this.materialArray.push(this.material)
+        //  for (let i = 0; i < 4; i++ ) {
+        //     this.material = new THREE.ShaderMaterial({
+        //         vertexShader: vertexShader,
+        //         fragmentShader: fragmentShader,
+        //         uniforms: {
+        //         uTime: { type: "f", value: 0},
+        //         uSpeed: {value: 0.0005},
+        //         uTexture: { value: this.resources.itemsList[0]},
+        //         uTexture2: { value: this.resources.itemsList[i]},
+        //         uProgress: { value: 0},
+        //         uDistortion: { value: 1.25},
+        //         uHide: { value: 0.0},
+        //         uBloomStrength: { value: this.parameters.bloomStrength},
+        //         uSize: {value: 0.0 * this.renderer.instance.getPixelRatio()}
+        //         }
+        //     })
+        //     this.materialArray.push(this.material)
 
-        }
-        // this.material = new THREE.ShaderMaterial({
-        //     vertexShader: vertexShader,
-        //     fragmentShader: fragmentShader,
-        //     uniforms: {
-        //     uTime: { type: "f", value: 0},
-        //     uSpeed: {value: 0.0005},
-        //     uTexture: { value: this.resources.itemsList[0]},
-        //     uTexture2: { value: this.resources.itemsList[1]},
-        //     uProgress: { value: 0},
-        //     uDistortion: { value: 1.25},
-        //     uBloomStrength: { value: this.parameters.bloomStrength},
-        //     uSize: {value: 0.0 * this.renderer.instance.getPixelRatio()}
-        //     }
-        // })
-        // this.materialArray.push(this.material)
+        // }
+        this.material = new THREE.ShaderMaterial({
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+            uniforms: {
+            uTime: { type: "f", value: 0},
+            uSpeed: {value: 0.0005},
+            uTexture: { value: this.resources.itemsList[0]},
+            uTexture2: { value: this.resources.itemsList[1]},
+            uProgress: { value: 0},
+            uDistortion: { value: 1},
+            uBloomStrength: { value: this.parameters.bloomStrength},
+            uSize: {value: 0.0 * this.renderer.instance.getPixelRatio()}
+            }
+        })
+        this.materialArray.push(this.material)
          
 
 
@@ -111,18 +111,18 @@ import gsap from 'gsap'
     }
 
      setMesh() {
-        for (let i = 0; i < this.materialArray.length; i++ ) {
-            if(i != 0) {
-                this.materialArray[i].uniforms.uHide.value = 1.0
-            }
-            this.mesh = new THREE.Points(this.geometry, this.materialArray[i])
-            this.scene.add(this.mesh)
-            this.meshArray.push(this.mesh)
-        }
-
-        // this.mesh = new THREE.Points(this.geometry, this.material)
+        // for (let i = 0; i < this.materialArray.length; i++ ) {
+        //     if(i != 0) {
+        //         this.materialArray[i].uniforms.uHide.value = 1.0
+        //     }
+        //     this.mesh = new THREE.Points(this.geometry, this.materialArray[i])
         //     this.scene.add(this.mesh)
         //     this.meshArray.push(this.mesh)
+        // }
+
+        this.mesh = new THREE.Points(this.geometry, this.material)
+            this.scene.add(this.mesh)
+            this.meshArray.push(this.mesh)
      }
 
     //  grabItem() {
@@ -132,9 +132,11 @@ import gsap from 'gsap'
 
      update() {
 
-        for(let i = 0; i < 4; i++) {
-            this.meshArray[i].material.uniforms.uTime.value = this.time.elapsed
-        }
+        // for(let i = 0; i < 4; i++) {
+        //     this.meshArray[i].material.uniforms.uTime.value = this.time.elapsed
+        // }
+
+        this.material.uniforms.uTime.value = this.time.elapsed
 
         this.navBar = this.experience.nav
 
@@ -149,9 +151,9 @@ import gsap from 'gsap'
                 this.prevDist = this.material.uniforms.uDistortion.value
                 const timeline = gsap.timeline()
                 timeline.to(this.material.uniforms.uDistortion, 
-                    {value: 2.25, duration: 0.3, ease: "power2.in"})
+                    {value: 2, duration: 0.3, ease: "power2.in"})
                 timeline.to(this.renderer.parameters, 
-                    {bloomStrength: 0.3, duration: 0.3, ease: "power2.in"}, 0)
+                    {bloomStrength: 0.5, duration: 0.3, ease: "power2.in"}, 0)
             }
             this.currentIntersect = intersects[0]
             
@@ -162,9 +164,9 @@ import gsap from 'gsap'
             {
                 const timeline = gsap.timeline()
                 timeline.to(this.material.uniforms.uDistortion, 
-                    {value: this.pageDist[this.navBar.currentPage], duration: 0.3, ease: "power2.in"})
+                    {value: this.pageDist[this.navBar.currentPage], duration: 0.5, ease: "power2.out"})
                 timeline.to(this.renderer.parameters, 
-                    {bloomStrength: 0, duration: 0.3, ease: "power2.in"}, 0)
+                    {bloomStrength: 0, duration: 0.5}, 0)
             }
             this.currentIntersect = null
         }
