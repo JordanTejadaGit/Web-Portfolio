@@ -59,6 +59,7 @@ import gsap from 'gsap'
                 uTexture2: { value: this.resources.itemsList[i]},
                 uProgress: { value: 0},
                 uDistortion: { value: 1.25},
+                uHide: { value: 0.0},
                 uBloomStrength: { value: this.parameters.bloomStrength},
                 uSize: {value: 0.0 * this.renderer.instance.getPixelRatio()}
                 }
@@ -110,19 +111,18 @@ import gsap from 'gsap'
     }
 
      setMesh() {
-        for (let i = 0; i < 4; i++ ) {
-            this.mesh = new THREE.Points(this.geometry, this.materialArray[i])
+        for (let i = 0; i < this.materialArray.length; i++ ) {
             if(i != 0) {
-                this.mesh.material.opacity = 0
-                this.mesh.material.transparent = true
+                this.materialArray[i].uniforms.uHide.value = 1.0
             }
+            this.mesh = new THREE.Points(this.geometry, this.materialArray[i])
             this.scene.add(this.mesh)
             this.meshArray.push(this.mesh)
         }
 
-        this.mesh = new THREE.Points(this.geometry, this.material)
-            this.scene.add(this.mesh)
-            this.meshArray.push(this.mesh)
+        // this.mesh = new THREE.Points(this.geometry, this.material)
+        //     this.scene.add(this.mesh)
+        //     this.meshArray.push(this.mesh)
      }
 
     //  grabItem() {
@@ -132,7 +132,10 @@ import gsap from 'gsap'
 
      update() {
 
-         this.material.uniforms.uTime.value = this.time.elapsed
+        for(let i = 0; i < 4; i++) {
+            this.meshArray[i].material.uniforms.uTime.value = this.time.elapsed
+        }
+
         this.navBar = this.experience.nav
 
          this.raycaster.setFromCamera(this.mouse, this.camera.instance)

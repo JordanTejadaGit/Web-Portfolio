@@ -25,7 +25,7 @@ export default class NavBar
         this.movement = [
             {
                 x:350,
-                y:450
+                y:450,
             },
             {
                 x:-350,
@@ -90,8 +90,8 @@ export default class NavBar
     transformParticlesModel(){
         for (let i = 0; i < 4; i++){
             let about = gsap.timeline()
-            about.to(this.particles.meshArray[i],
-                {opacity: 1, duration: 1, ease: "power2.in"}, 0)
+            about.to(this.particles.meshArray[i].material.uniforms.uHide,
+                {value: 1, duration: 0, ease: "power2.in"}, 0)
             about.to(this.particles.meshArray[i].material.uniforms.uDistortion, 
                 {value: 10, duration: 1, ease: "power2.in"}, 0)
             about.to(this.render.parameters, 
