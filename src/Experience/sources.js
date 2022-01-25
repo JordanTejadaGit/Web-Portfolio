@@ -20,14 +20,9 @@ export default [
         path: 'logo/csslogo.png'
     },
     {
-        name: 'javascriptLogo',
-        type: 'texture',
-        path: 'logo/javascriptLogo.png'
-    },
-    {
         name: 'project1',
         type: 'texture',
-        path: 'pictures/project1_portfolio.png'
+        path: 'pictures/project_portfolio.png'
     },
     {
         name: 'project2',
