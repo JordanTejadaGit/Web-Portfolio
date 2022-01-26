@@ -22,7 +22,7 @@ export default [
     {
         name: 'project1',
         type: 'texture',
-        path: '/pictures/project_portfolio.png'
+        path: '/logo/project_portfolio.PNG'
     },
     {
         name: 'project2',

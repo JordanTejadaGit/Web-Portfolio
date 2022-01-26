@@ -54,7 +54,7 @@ export default class NavBar
             this.project[experience.slider.counter].classList.add("fadeOut")
             this.projectDescription[0].classList.remove("fadeIn")
             this.projectDescription[0].classList.add("fadeOut")
-            this.transformParticlesHome()
+            this.transformParticlesModel(0)
             this.currentPage = 0
         })
 
@@ -69,7 +69,7 @@ export default class NavBar
             this.project[experience.slider.counter].classList.add("fadeOut")
             this.projectDescription[0].classList.remove("fadeIn")
             this.projectDescription[0].classList.add("fadeOut")
-           this.transformParticlesModel()
+           this.transformParticlesModel(1)
            this.currentPage = 1
         })
 
@@ -84,31 +84,25 @@ export default class NavBar
             this.project[experience.slider.counter].classList.remove("fadeOut")
             this.projectDescription[0].classList.add("fadeIn")
             this.projectDescription[0].classList.remove("fadeOut")
-            this.transformParticlesProject()
+            this.transformParticlesModel(2)
             this.currentPage = 2
         })
     }
 
-    transformParticlesModel(){
-        // for (let i = 0; i < 4; i++){
-        //     let about = gsap.timeline()
-        //     about.to(this.particles.meshArray[i].material.uniforms.uHide,
-        //         {value: 1, duration: 0, ease: "power2.in"}, 0)
-        //     about.to(this.particles.meshArray[i].material.uniforms.uDistortion, 
-        //         {value: 10, duration: 1, ease: "power2.in"}, 0)
-        //     about.to(this.render.parameters, 
-        //         {bloomStrength: 2, duration: 1, ease: "power2.in"}, 0)
-        //     about.to(this.render.parameters, 
-        //         {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
-        //     about.to(this.particles.meshArray[i].material.uniforms.uDistortion, 
-        //         {value: 0, duration: 1, ease: "power2.out"}, 1)
-        //     about.to(this.particles.meshArray[i].material.uniforms.uProgress,
-        //         {value: 1, duration: 1}, 0.5)
-        //     about.to(this.particles.meshArray[i].position,
-        //         {x: this.movement[i].x, y: this.movement[i].y, duration: 2}, 0)
-            
-        // }
+    transformParticlesModel(nextPage){
         let about = gsap.timeline()
+        let slider = this.slider.counter
+        let nextSlider = this.slider.counter
+        let nextDist = 0
+        if (this.currentPage != 2) {
+            slider = 0
+        }
+        if (nextPage === 0) {
+            nextDist = 1.25
+        }
+        if (nextPage != 2) {
+            nextSlider = 0
+        }
         about.to(this.particles.material.uniforms.uDistortion, 
             {value: 5, duration: 1, ease: "power2.in"}, 0)
         about.to(this.render.parameters, 
@@ -116,96 +110,34 @@ export default class NavBar
         about.to(this.render.parameters, 
             {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
         about.to(this.particles.material.uniforms.uDistortion, 
-            {value: 0, duration: 1, ease: "power2.out"}, 1)
-            if(this.particles.material.uniforms.uProgress.value === 0) {
-                if(this.currentPage === 2) {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[1]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 1, duration: 1}, 0.5)
-                }
-                else {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[1]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 1, duration: 1}, 0.5)
-                }
-            }
-            else {
-                if(this.currentPage === 2) {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[1]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 0, duration: 1}, 0.5)
-                }
-                else {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[1]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 0, duration: 1}, 0.5)
-                }
-            }
-    }
-    transformParticlesHome(){
-        let about = gsap.timeline()
-            about.to(this.particles.material.uniforms.uDistortion, 
-                {value: 5, duration: 1, ease: "power2.in"})
-            about.to(this.render.parameters, 
-                {bloomStrength: 5, duration: 1, ease: "power2.in"}, 0)
-            about.to(this.render.parameters, 
-                {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
-            about.to(this.particles.material.uniforms.uDistortion, 
-                {value: 1.25, duration: 1, ease: "power2.out"}, 1)
-            if(this.particles.material.uniforms.uProgress.value === 0) {
-                if(this.currentPage === 2) {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[0]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 1, duration: 1}, 0.5)
-                }
-                else {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[0]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 1, duration: 1}, 0.5)
-                }
-            }
-            else {
-                if(this.currentPage === 2) {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[0]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 0, duration: 1}, 0.5)
-                }
-                else {
-                    this.particles.material.uniforms.uTexture.value = this.resources.itemsList[0]
-                    this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage + this.slider.counter]
-                    about.to(this.particles.material.uniforms.uProgress,
-                        {value: 0, duration: 1}, 0.5)
-                }
-            }
-    }
-    transformParticlesProject(){
-        let about = gsap.timeline()
-            about.to(this.particles.material.uniforms.uDistortion, 
-                {value: 5, duration: 1, ease: "power2.in"})
-            about.to(this.render.parameters, 
-                {bloomStrength: 5, duration: 1, ease: "power2.in"}, 0)
-            about.to(this.render.parameters, 
-                {bloomStrength: 0.15, duration: 1, ease: "power2.out"}, 1)
-            about.to(this.particles.material.uniforms.uDistortion, 
-                {value: 0, duration: 1, ease: "power2.out"}, 1)
-            if(this.particles.material.uniforms.uProgress.value === 0) {
-                this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage]
-                this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.slider.counter]
+            {value: nextDist, duration: 1, ease: "power2.out"}, 1)
+        if(this.particles.material.uniforms.uProgress.value === 0) {
+            if(this.currentPage === 2) {
+                this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage + slider]
+                this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[nextPage + nextSlider]
                 about.to(this.particles.material.uniforms.uProgress,
                     {value: 1, duration: 1}, 0.5)
             }
             else {
-                this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.slider.counter]
-                this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage]
+                this.particles.material.uniforms.uTexture.value = this.resources.itemsList[this.currentPage + slider]
+                this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[nextPage + nextSlider]
+                about.to(this.particles.material.uniforms.uProgress,
+                    {value: 1, duration: 1}, 0.5)
+            }
+        }
+        else {
+            if(this.currentPage === 2) {
+                this.particles.material.uniforms.uTexture.value = this.resources.itemsList[nextPage + nextSlider]
+                this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage + slider]
                 about.to(this.particles.material.uniforms.uProgress,
                     {value: 0, duration: 1}, 0.5)
             }
+            else {
+                this.particles.material.uniforms.uTexture.value = this.resources.itemsList[nextPage + nextSlider]
+                this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[this.currentPage + slider]
+                about.to(this.particles.material.uniforms.uProgress,
+                    {value: 0, duration: 1}, 0.5)
+            }
+        }
     }
 }
