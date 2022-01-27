@@ -79,7 +79,8 @@ export default class Resources extends EventEmitter
 
         if(this.loaded == this.toLoad)
         {
-            this.itemsList = [this.items.initial, this.items.skillsLogo, this.items.project1, this.items.project2, this.items.project3]
+            this.itemsList = [this.items.initial, this.items.skillsLogo, this.items.contact, this.items.submit,
+                                this.items.project1, this.items.project2, this.items.project3]
             this.trigger('ready')
         }
     }

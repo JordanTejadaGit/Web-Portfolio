@@ -33,5 +33,16 @@ export default [
         name: 'project3',
         type: 'texture',
         path: '/pictures/project3_portfolio.png'
+    },
+    {
+        name: 'contact',
+        type: 'texture',
+        path: '/logo/contact.jpg'
+    },
+    {
+        name: 'submit',
+        type: 'texture',
+        path: '/logo/submit.jpg'
     }
+
 ]

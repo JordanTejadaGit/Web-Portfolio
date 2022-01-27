@@ -114,14 +114,14 @@ export default class Slider
         project.to(this.particles.material.uniforms.uDistortion, 
             {value: 0, duration: 1, ease: "power2.out"}, 1)
         if(this.particles.material.uniforms.uProgress.value === 0) {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter + 1]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + this.counter + 1]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 1, duration: 1}, 0.5)
         }
         else {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter + 1]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + this.counter + 1]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + this.counter]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 0, duration: 1}, 0.5)
         }
@@ -137,14 +137,14 @@ export default class Slider
         project.to(this.particles.material.uniforms.uDistortion, 
             {value: 0, duration: 1, ease: "power2.out"}, 1)
         if(this.particles.material.uniforms.uProgress.value === 0) {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 1, duration: 1}, 0.5)
         }
         else {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + this.counter]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 0, duration: 1}, 0.5)
         }
@@ -161,14 +161,14 @@ export default class Slider
         project.to(this.particles.material.uniforms.uDistortion, 
             {value: 0, duration: 1, ease: "power2.out"}, 1)
         if(this.particles.material.uniforms.uProgress.value === 0) {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter - 1]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + this.counter - 1]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 1, duration: 1}, 0.5)
         }
         else {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter - 1]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + this.counter - 1]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + this.counter]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 0, duration: 1}, 0.5)
         }
@@ -184,14 +184,14 @@ export default class Slider
         project.to(this.particles.material.uniforms.uDistortion, 
             {value: 0, duration: 1, ease: "power2.out"}, 1)
         if(this.particles.material.uniforms.uProgress.value === 0) {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + this.counter]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + size -1]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + this.counter]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + size -1]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 1, duration: 1}, 0.5)
         }
         else {
-            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[2 + size - 1]
-            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[2 + this.counter]
+            this.particles.material.uniforms.uTexture.value = this.resources.itemsList[4 + size - 1]
+            this.particles.material.uniforms.uTexture2.value = this.resources.itemsList[4 + this.counter]
             project.to(this.particles.material.uniforms.uProgress,
                 {value: 0, duration: 1}, 0.5)
         }

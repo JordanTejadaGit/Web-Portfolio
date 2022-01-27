@@ -141,9 +141,24 @@
         </div>
     </div>
     <div class = "section contact">
-        <div class = "form">
-            
+        <div class = "container">
+            <form action = "https://formspree.io/f/mvolzeyq" method="POST" class = "formContainer" id="my-form">
+                <div class="formName">
+                    <label>Name</label>
+                    <input type = "text" name = "name" required>
+                </div>
+                <div class="formEmail">
+                    <label>Email</label>
+                    <input type = "email" name = "email" required>
+                </div>
+                <div class="formMessage">
+                    <label>Message</label>
+                    <textarea name = "message" rows="14" cols="50" required></textarea> <br/>
+                </div>
+                <button type = "submit" value = "Submit" id = "submit">Submit</button>
+            </form>
         </div>
+        <div id="status"></div>
     </div>
     <canvas class="webgl"></canvas>
 </body>

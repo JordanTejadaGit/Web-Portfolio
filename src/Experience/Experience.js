@@ -9,6 +9,7 @@ import sources from './sources'
 import Debug from './Utils/Debug.js'
 import NavBar from './NavBar'
 import Slider from "./Slider"
+import Contact from "./Contact"
 
 let instance = null
 
@@ -55,6 +56,7 @@ export default class Experience
         {
                 this.slider = new Slider();
                 this.nav = new NavBar();
+                this.contact = new Contact();
         })
 
         // Sizes resize event

@@ -22,7 +22,7 @@ import gsap from 'gsap'
         this.currentIntersect = null
         this.materialArray = []
         this.meshArray = []
-        this.pageDist = [1, 0, 0, 0, 0, 0, 0]
+        this.pageDist = [1, 0, 1, 0, 0, 0, 0]
 
 
         this.isPlaying = true;
