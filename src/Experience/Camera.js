@@ -30,6 +30,9 @@ export default class Camera
             5000
         )
         this.instance.position.set(-850, 0, 2500)
+        if (this.sizes.width < this.sizes.height){
+            this.instance.position.set(0, -300, 2500)
+        }
         this.scene.add(this.instance)
         // this.instanceHelper = new THREE.CameraHelper(this.instance)
         // this.scene.add(this.instanceHelper)
@@ -44,8 +47,8 @@ export default class Camera
                 .name("Camera X") 
             this.debugFolder
                 .add(this.instance.position, 'y')
-                .min(0)
-                .max(5000)
+                .min(-2000)
+                .max(2000)
                 .step(1)
                 .name("Camera Y") 
             this.debugFolder
@@ -67,6 +70,12 @@ export default class Camera
     {
         this.instance.aspect = this.sizes.width / this.sizes.height
         this.instance.updateProjectionMatrix()
+        if (this.sizes.width < this.sizes.height){
+            this.instance.position.set(0, -300, 2500)
+        }
+        else {
+            this.instance.position.set(-850, 0, 2500)
+        }
     }
 
     update()

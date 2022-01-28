@@ -76,6 +76,8 @@ export default class Experience
     {
         this.camera.resize()
         this.renderer.resize()
+        this.World.particles.resize()
+        this.World.floor.resize()
     }
 
     update()

@@ -35,7 +35,9 @@ export default class Renderer
     {
         this.instance = new THREE.WebGL1Renderer({
             canvas: this.canvas,
-            antialias: true
+            antialias: true,
+            powerPreference: 'high-performance'
+
         })
 
         this.instance.physicallyCorrectLights = true
@@ -46,6 +48,8 @@ export default class Renderer
         // this.instance.setClearColor('#211d20')
         this.instance.setSize(this.sizes.width, this.sizes.height)
         this.instance.setPixelRatio(this.sizes.pixelRatio)
+        this.instance.shadowMap.autoUpdate = false
+        this.instance.shadowMap.needsUpdate = true
 
         if(this.debug.active)
         {

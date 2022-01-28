@@ -128,7 +128,9 @@ import gsap from 'gsap'
     //  grabItem() {
     //      this.resources.items.
     //  }
-
+     resize() {
+         this.material.uniforms.uSize.value = 0.0 * this.renderer.instance.getPixelRatio()
+     }
 
      update() {
 
