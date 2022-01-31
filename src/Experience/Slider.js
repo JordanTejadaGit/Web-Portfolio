@@ -9,6 +9,7 @@ export default class Slider
         const nextBtn = document.querySelector('#nextBtn')
         const projects = document.querySelectorAll(".project")
         const git = document.querySelectorAll(".git")
+        const live = document.querySelectorAll(".live")
         const clickable = document.querySelectorAll("body");
         this.experience = new Experience();
         this.particles = this.experience.World.particles
@@ -29,6 +30,8 @@ export default class Slider
                 projects[0].classList.add("fadeIn")
                 git[this.counter].classList.add("stopLink")
                 git[0].classList.remove("stopLink")
+                live[this.counter].classList.add("stopLink")
+                live[0].classList.remove("stopLink")
                 clickable[0].classList.add("unclickable")
                 clickable[0].classList.remove("unclickable")
                 // gsap.fromTo(this.projects[0].position, 
@@ -47,6 +50,8 @@ export default class Slider
                 projects[this.counter + 1].classList.add("fadeIn")
                 git[this.counter].classList.add("stopLink")
                 git[this.counter + 1].classList.remove("stopLink")
+                live[this.counter].classList.add("stopLink")
+                live[this.counter + 1].classList.remove("stopLink")
                 clickable[0].classList.add("unclickable")
                 clickable[0].classList.remove("unclickable")
                 // gsap.fromTo(this.projects[this.counter + 1].position, 
@@ -69,6 +74,8 @@ export default class Slider
                 projects[size - 1].classList.add("fadeIn")
                 git[this.counter].classList.add("stopLink")
                 git[size - 1].classList.remove("stopLink")
+                live[this.counter].classList.add("stopLink")
+                live[size - 1].classList.remove("stopLink")
                 clickable[0].classList.add("unclickable")
                 clickable[0].classList.remove("unclickable")
                 // gsap.fromTo(this.projects[size - 1].position, 
@@ -87,6 +94,8 @@ export default class Slider
                 projects[this.counter - 1].classList.add("fadeIn")
                 git[this.counter].classList.add("stopLink")
                 git[this.counter - 1].classList.remove("stopLink")
+                live[this.counter].classList.add("stopLink")
+                live[this.counter - 1].classList.remove("stopLink")
                 clickable[0].classList.add("unclickable")
                 clickable[0].classList.remove("unclickable")
                 // gsap.fromTo(this.projects[this.counter - 1].position, 
