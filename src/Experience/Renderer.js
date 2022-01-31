@@ -35,6 +35,7 @@ export default class Renderer
     {
         this.instance = new THREE.WebGL1Renderer({
             canvas: this.canvas,
+            // alpha: true,
             antialias: true,
             powerPreference: 'high-performance'
 
@@ -45,7 +46,7 @@ export default class Renderer
         this.instance.toneMapping = THREE.ReinhardToneMapping
         this.instance.setClearColor(0x000000, 1)
         this.instance.toneMappingExposure = Math.pow(this.parameters.exposure, 4)
-        // this.instance.setClearColor('#211d20')
+        this.instance.setClearColor('#ffffff', 0)
         this.instance.setSize(this.sizes.width, this.sizes.height)
         this.instance.setPixelRatio(this.sizes.pixelRatio)
         this.instance.shadowMap.autoUpdate = false

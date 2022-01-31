@@ -6,6 +6,7 @@
     <link type = 'text/css' rel = "stylesheet" href="style.css">
     <title>Web Portfolio</title>
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <div class = "menu">
         <div class = "seperate">
             <h3 id = "home" class="highlight">
@@ -41,15 +42,20 @@
         </div>
     </div>
     <div class = "section aboutMe">
-        <div class = "description fadeOut">
+        <div class = "description fadeOut clearfix">
             <p>
                 I am a full-stack software developer who is eager to improve. Passionate about learning new code and often thinking
                 of ways to solve problems on my spare time.  
             </p>
-            <div class = "social">
+            <div class = "iosSkills">
+                <img src="/static/logo/skilllogo.png">
+            </div>
+            <div class = "social s1">
                 <a href="https://github.com/JordanTejadaGit" target="_blank">
                     <img src="/static/logo/gitlogo.png" class="highlight"/>
                 </a>
+            </div>
+            <div class = "social s2">
                 <a href="https://www.linkedin.com/in/jordan-tejada-2aa426204/" target="_blank">
                     <img src="/static/logo/linkedinlogo.png" class="highlight"/>
                 </a>
@@ -79,6 +85,9 @@
                 <p>
                     Website portfolio showcasing my skills in the front-end development side. 
                 <p>
+                <div class = "iosProject 0">
+                    <img src="/static/logo/project_portfolio.PNG" />
+                </div>
                 <div class = "git">
                     <img src="/static/logo/gitlogo.png"/>
                 </div>
@@ -101,6 +110,9 @@
                     Website that takes the Calgary data json files in real time and outputs them through search field. 
                     Able to grab current traffic cams, traffic incidents with google map locations, crime stats and much more.
                 <p>
+                <div class = "iosProject 1">
+                    <img src="/static/pictures/project2_portfolio.png" />
+                </div>
                 <div class = "git stopLink">
                     <a href="https://github.com/JordanTejadaGit/Calgary-Datasets" target="_blank">
                         <img src="/static/logo/gitlogo.png" class="highlight"/>
@@ -126,6 +138,9 @@
                     to create an account that send a confirm email and validates. Admins are able to delete users, 
                     change names, and add categories
                 <p>
+                <div class = "iosProject 2">
+                    <img src="/static/pictures/project3_portfolio.png" />
+                </div>
                 <div class = "git stopLink">
                     <a href="https://github.com/JordanTejadaGit/Database-Management" target="_blank">
                         <img src="/static/logo/gitlogo.png" class="highlight"/>
@@ -153,7 +168,7 @@
                 </div>
                 <div class="formMessage">
                     <label>Message</label>
-                    <textarea name = "message" rows="13" cols="50" required></textarea> <br/>
+                    <textarea name = "message" rows="14" cols="50" required></textarea> <br/>
                 </div>
                 <button type = "submit" value = "Submit" id = "submit">Submit</button>
             </form>

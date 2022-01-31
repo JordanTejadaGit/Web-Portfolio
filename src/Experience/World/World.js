@@ -1,5 +1,4 @@
 import Experience from "../Experience";
-import Box from "./cube";
 import Environment from "./Environnment";
 import Particles from "./Particles";
 import Floor from "./Floor";

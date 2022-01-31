@@ -68,6 +68,7 @@ import gsap from 'gsap'
 
         // }
         this.material = new THREE.ShaderMaterial({
+            precision: 'lowp',
             vertexShader: vertexShader,
             fragmentShader: fragmentShader,
             uniforms: {
@@ -81,6 +82,7 @@ import gsap from 'gsap'
             uSize: {value: 0.0 * this.renderer.instance.getPixelRatio()}
             }
         })
+        this.renderer.instance.getContext().getExtension('OES_standard_derivatives')
         this.materialArray.push(this.material)
          
 
@@ -123,6 +125,10 @@ import gsap from 'gsap'
         this.mesh = new THREE.Points(this.geometry, this.material)
             this.scene.add(this.mesh)
             this.meshArray.push(this.mesh)
+            this.renderer.instance.getContext().getExtension('OES_standard_derivatives')
+            this.mesh.material.extensions = {
+                derivatives: true
+            }
      }
 
     //  grabItem() {

@@ -70,6 +70,7 @@ export default class Experience
         {
             this.update()
         })
+
     }
 
     resize()
