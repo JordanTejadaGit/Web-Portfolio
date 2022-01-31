@@ -19,3 +19,4 @@ Using the tabs to navigate each section. Can hover over particles effect to expa
 * Able to edit the particle efect by adding "#debug" at the end of the address 
 * Problems with IOS devices not rendering particle effects so I replaced it with pictures
 * Might add a "turn off particle" feature for low end devices
+* Better the Hz on you monitor, the smoother the animations are.
