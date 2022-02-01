@@ -17,7 +17,7 @@
     h3.highlight:hover {
       color: white;
     }
-    
+
     h4.highlight:hover {
       color: white;
     }
@@ -431,6 +431,18 @@
       opacity: 0;
       position: fixed;
       pointer-events: none;
+    }
+
+    .live.youtube {
+      height: 6%;
+      top: 89.75%;
+      left: 7%;
+    }
+
+    .live.youtube img {
+      max-width: auto;
+      max-height: 100%;
+      position: relative;
     }
     
     .skills {
@@ -870,6 +882,12 @@
     font-size: 3vh;
   }
 
+  .live.youtube {
+    height: 6%;
+    top: 89.75%;
+    left: 14%;
+  }
+
 
   .git {
     height: 3%;
@@ -880,9 +898,6 @@
     top: 87.5%;
     max-width: auto;
     max-height: 100%;
-  }
-  .git.g2 {
-    top: 91%;
   }
 
   .git img{
